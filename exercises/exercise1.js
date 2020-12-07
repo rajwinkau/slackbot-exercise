@@ -10,7 +10,7 @@ module.exports.botScripts = [
     },
     isReply: false,
     isCaseSensitive: false,
-    isListening: true
+    isListening: false
   },
   {
     label: "An Example Script with Variables",
@@ -27,6 +27,5 @@ module.exports.botScripts = [
       const doubledAmount = 2 * params.amount;
       return 'I want to give $' + doubledAmount.toFixed(2) + ' to ' + params.name + '!'
     },
-    isListening: true
   }
 ]

@@ -2,11 +2,8 @@
 module.exports.ACTIVATE_BOT = false
 
 module.exports.botScripts = [
-  {
-    label: "An Example Script",
-    prompt: "Good Evening",
-    handler: function () {
-      return "Good Evening to You!"
-    }
-  }
+  // Write an interaction where
+
+
+  //
 ]

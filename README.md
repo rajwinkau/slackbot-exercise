@@ -61,22 +61,24 @@ You can start your chatbot locally by running in your terminal (in your project
 directory):
 
 ```
-$ bin/hubot
+$ bin/hubot --name mychatbot
 ```
+
+The name will be helpful in naming your chatbot as you like it.
 
 You'll see some start up output and a prompt:
 
 ```
 [Sat Feb 28 2015 12:38:27 GMT+0000 (GMT)] INFO Using default redis on localhost:6379
-slackbot-exercise>
+mychatbot>
 ```
 
 Then you can interact with slackbot-exercise by typing `slackbot-exercise help`.
 
 ```
-slackbot-exercise> slackbot-exercise help
-slackbot-exercise animate me <query> - The same thing as `image me`, except adds [snip]
-slackbot-exercise help - Displays all of the help commands that slackbot-exercise knows about.
+mychatbot> mychatbot help
+mychatbot animate me <query> - The same thing as `image me`, except adds [snip]
+mychatbot help - Displays all of the help commands that slackbot-exercise knows about.
 ...
 ```
 
@@ -88,7 +90,44 @@ using your own creativity!
 
 ### Exercise 1 - Tutorial
 
+Open up `exercises/exercise1.js` in your code editor. Inside you will see three
+example functions and get the opportunity to play with it.
+
+I custom wrote this "specification" to make things easier. Each exercise exports
+the following:
+
+- `ACTIVATE_BOT` - a boolean. If set to true, the Chatbot interface will include the provided scripts.
+- `botScripts` - an array. This contains all of the bot scripts.
+
+Each bot script is an object containing the following keys:
+
+- `label` - A name for you to identify this message object (a string)
+- `prompt` - The message that "prompts" the bot to respond (a string)
+- `handler` - A function that tells the bot what to do. It returns the response (a string)
+- `isReply` - OPTIONAL, A boolean that when set to `true` will respond specifically to the user (defaults to false)
+- `isCaseSensitive - OPTIONAL, A boolean that when set to `true` will only respond to the specific prompt regardless of capitalization (defaults to false)
+- `isListening` - OPTIONAL, A boolean that when set to `true` will respond if the message is said without mentioning the bot's name (defaults to false).
+
+Exercise 1 shows three examples showcasing different prompts and usage of the handler.
+
+1. Uses a basic prompt and response.
+2. Uses "placeholders" in the prompt string. Anything with "#{label}" will be exposed in the params object sent to the handler under that label. TIP: I recommend using camelCase for these variables.
+3. Uses multiple placeholders in the prompt string. By default, all placeholders are strings, but you can qualify the placeholder as either a number or a boolean as well. The chatbot interface parses it for you.
+
+Play with these in the chatbot!
+
 ### Exercise 2 - Tutorial
+
+Given what you understood above, try to write your own bot script in `exercises/exercise2.js`.
+The questions here are meant to help you practice building your own scripts from scratch.
+
+### Exercise 3 - Use your Imagination
+
+You've now played with some code, and wrote your own basic scripts. Now it's time to use your
+creativity and build a full-fledged bot! Give it a personality and give it a task to do.
+
+1. Aim for 7 - 10 interactions. The more, the merrier.
+2. Utilize different interaction schemes (listening, replying, placeholders)
 
 ### Lab
 
@@ -120,6 +159,12 @@ In the end, the goal of this exercise is to implement something to demonstrate
 what you have learned thus far. Do not worry if you feel your bot feels "boring"
 or "basic". Take pride because _you built it yourself_.
 
+## Advanced
+
+<details>
+  <summary>This project was built on top of [Hubot](http://hubot.github.com). You can interact directly by adding
+  scripts to the `scripts` folder.</summary>
+
 ### Configuration
 
 A few scripts (including some installed by default) require environment
@@ -139,16 +184,6 @@ easier way to do this has been implemented.
 How to set environment variables will be specific to your operating system.
 Rather than recreate the various methods and best practices in achieving this,
 it's suggested that you search for a dedicated guide focused on your OS.
-
-### Scripting
-
-An example script is included at `scripts/example.coffee`, so check it out to
-get started, along with the [Scripting Guide][scripting-docs].
-
-For many common tasks, there's a good chance someone has already one to do just
-the thing.
-
-[scripting-docs]: https://github.com/github/hubot/blob/master/docs/scripting.md
 
 ### external-scripts
 
@@ -171,7 +206,7 @@ To use a package, check the package's documentation, but in general it is:
 
 You can review `external-scripts.json` to see what is included by default.
 
-##### Advanced Usage
+### Super Advanced Usage
 
 It is also possible to define `external-scripts.json` as an object to
 explicitly specify which scripts from a package should be included. The example
@@ -203,8 +238,6 @@ repo.
 
 [hubot-scripts]: https://github.com/github/hubot-scripts
 
-## Advanced
-
 If you are going to use the `hubot-redis-brain` package (strongly suggested),
 you will need to add the Redis to Go addon on Heroku which requires a verified
 account or you can create an account at [Redis to Go][redistogo] and manually
@@ -216,6 +249,8 @@ If you don't need any persistence feel free to remove the `hubot-redis-brain`
 from `external-scripts.json` and you don't need to worry about redis at all.
 
 [redistogo]: https://redistogo.com/
+
+</details>
 
 ## Deployment
 

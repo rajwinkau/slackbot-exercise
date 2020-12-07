@@ -78,8 +78,13 @@ function getParams(userPrompt, templatePrompt) {
 function processExerciseObject(robot, scripts) {
   for (messageObj of scripts) {
     const { label, handler, prompt, isReply, isListening, isCaseSensitive } = messageObj
-    const regExp = translatePrompt(prompt, isCaseSensitive)
     const command = isListening ? "hear" : "respond"
+    if (prompt instanceof RegExp) {
+      robot[command(prompt, handler)]
+      continue
+    }
+
+    const regExp = translatePrompt(prompt, isCaseSensitive)
     robot[command](regExp, (res) => {
       const userPrompt = res.match[0]
       try {
