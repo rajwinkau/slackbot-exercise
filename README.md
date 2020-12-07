@@ -162,8 +162,8 @@ or "basic". Take pride because _you built it yourself_.
 ## Advanced
 
 <details>
-  <summary>This project was built on top of [Hubot](http://hubot.github.com). You can interact directly by adding
-  scripts to the `scripts` folder.</summary>
+  <summary>This project was built on top of http://hubot.github.com. You can interact directly by adding
+  scripts to the scripts folder.</summary>
 
 ### Configuration
 

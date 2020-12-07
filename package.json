@@ -4,6 +4,9 @@
   "private": true,
   "author": "Ken McGrady <ken.mcgrady@gmail.com>",
   "description": "A simple helpful robot for your Company",
+  "scripts": {
+    "prettier": "prettier --write --single-quote exercises"
+  },
   "dependencies": {
     "hubot": "^3.3.2",
     "hubot-diagnostics": "^1.0.0",
