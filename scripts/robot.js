@@ -34,7 +34,8 @@ function getParams(userPrompt, templatePrompt) {
     return {}
   }
 
-  let promptPlaceholder = userPrompt.substring(mainStrings[0].length)
+  const firstPlaceholder = userPrompt.indexOf(mainStrings[0])
+  let promptPlaceholder = userPrompt.substring(firstPlaceholder + mainStrings[0].length)
   const params = {}
   for (let i = 0; i < matches.length; i++) {
     const arg = matches[i].substring(2, matches[i].length - 1)
