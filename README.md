@@ -159,6 +159,21 @@ In the end, the goal of this exercise is to implement something to demonstrate
 what you have learned thus far. Do not worry if you feel your bot feels "boring"
 or "basic". Take pride because _you built it yourself_.
 
+## Pretty-ing your Files
+
+Writing good code is time consuming. Luckily, there's a tool that will stylize your code properly.
+
+Just run in your terminal (in the project directory):
+
+```
+$ npm run prettier
+```
+
+### Notes
+
+- Your project must have no Syntax Errors (ie Prettier will complain otherwise)
+- Files are being written and updated, so be careful if you haven't saved anything.
+
 ## Advanced
 
 <details>
