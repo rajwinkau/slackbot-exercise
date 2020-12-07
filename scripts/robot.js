@@ -20,6 +20,9 @@ function escapeRegExp(string) {
 
 function translatePrompt(prompt, isCaseSensitive) {
   const mainStrings = prompt.split(paramExp)
+  if (mainStrings.slice(0, mainStrings.length - 1).some(str => str === '')) {
+    throw new Error("The following prompt template needs at least a character between placeholders: " + prompt)
+  }
   const flags = isCaseSensitive ? "g" : "gi"
   return new RegExp(mainStrings.map(escapeRegExp).join("(.*)"), flags)
 }
