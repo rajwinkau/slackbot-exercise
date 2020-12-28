@@ -3,14 +3,14 @@ module.exports.ACTIVATE_BOT = true;
 
 module.exports.botScripts = [
   {
-    label: 'An Example Script',
-    prompt: 'Good Evening',
+    label: 'RajchatBot',
+    prompt: 'Good Night',
     handler: function () {
-      return 'Good Evening to You!';
+      return 'Good Night to You!';
     },
-    isReply: false,
+    isReply: true,
     isCaseSensitive: false,
-    isListening: false,
+    isListening: true,
   },
   {
     label: 'An Example Script with Variables',
